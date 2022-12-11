@@ -2,3 +2,13 @@
 - react
 - framer-motion
 - react-router-dom
+- three 
+- @react-three/fiber
+- @react-three/drei
+- framer-motion-3d
+- react-use-measure
+- @reduxjs/toolkit
+- firebase
+- lodash
+- axios
+- maath
