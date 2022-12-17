@@ -59,7 +59,27 @@
     display: flex;  
 }
 
+.talk-cute {
+    position:fixed;
+    background-color: #ffdd41;
+    overflow: hidden;
+    width:1920px;
+    height:1080px;
+    display: flex;  
+}
+
 .img_hand li{
     display:inline-flex;
     margin:25px;
+}
+
+.bell {
+    width:120px;
+    height:120px;
+    background-image: url("../../public/img/mood_plate/help.png");
+    border-radius: 60px;
+    position:fixed;
+    left: 1700px;
+    top: 500px;
+    opacity: 0.7;
 }

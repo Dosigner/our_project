@@ -1,7 +1,8 @@
 import './style/App.css';
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence } from "framer-motion";
-import { useLocation, useRoutes } from "react-router-dom";
+import { useLocation, useRoutes,useNavigate } from "react-router-dom";
+
 
 // MousePointer
 import Pointer from "./components/Pointer/Pointer"
@@ -37,7 +38,8 @@ import Order from "./routes/Order/Order";
 import Mood from './routes/Mood/Mood';
 
 import Starlight from './routes/Mood/Starlight';
-import Beach from './routes/Mood/Beach'
+import Beach from './routes/Mood/Beach';
+import CuteBall from './routes/Mood/CuteBall';
 
 
 
@@ -73,11 +75,36 @@ function App() {
     { path:"/mood", element: <Mood/> },
     { path:"/mood-sky", element:<Starlight/>},
     { path:"/mood-beach", element:<Beach/>},
+    { path:"/mood-cute", element:<CuteBall/>},
     
     { path:"/order", element: <Order/>},
 
   ])
-  
+  let navigate = useNavigate();
+  useEffect(() => {
+    const onKeyPress = (e) => {
+      if(e.key==='o'){
+        navigate("/order");
+      }
+      else if(e.key==='m'){
+        navigate("/manual");
+      }
+      else if(e.key==='i'){
+        navigate("/intro");
+      }
+      else if(e.key==='1'){
+        navigate("/com-first");
+      }
+
+    };
+
+    document.addEventListener('keypress', onKeyPress);
+
+    return () => {
+      document.removeEventListener('keypress', onKeyPress);
+    }
+  }, [])
+
   const location = useLocation();
 
   if (!element) return null;

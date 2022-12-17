@@ -15,31 +15,25 @@ import {database} from "../firebase";
 
 function Recognize() {
     let navigate = useNavigate();
-
-
-    useEffect(()=>{
-        setTimeout(
-          ()=>{navigate("/manual");}
-        , 4500);
-        },[]
-    )
     const [number, setNumber] = useState("");
     const peopleRef = database.ref('/place/tables/table1/people');
-    peopleRef.get().then((snapshot)=>{
-        if(snapshot.exists()){
-            //console.log(snapshot.val());
-            setNumber(snapshot.val());
-        } else {
-            console.log("No data available");
-        }
-    }).catch((error) => {
-        console.error(error);
-    })
+    let interval = setInterval(()=>{
+        peopleRef.get().then((snapshot)=>{
+            if(snapshot.exists()){
+                setNumber(snapshot.val());
+                console.log(number);
+            } else {
+                console.log("No data available");
+            }
+        }).catch((error) => {
+            console.error(error);
+        })
+    }, 1000);
+    
     useEffect(()=>{
         if(number>=1){
-            setTimeout(
-                ()=>{navigate("/manual");}
-            , 10000);
+            clearInterval(interval);
+            navigate("/manual");
         }
     },[number])
 
@@ -57,7 +51,8 @@ function Recognize() {
                 initial={{ opacity: 0, y:100 }}
                 animate={{ opacity: 1, y:0 }}
                 transition={{ duration: 1, delay:0.5}}
-            >DeLighting
+            >
+                시작
             </motion.div>
         </motion.div>
     )

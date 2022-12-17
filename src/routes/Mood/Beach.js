@@ -3,6 +3,9 @@ import '../../style/App.css'
 import {motion, AnimatePresence} from "framer-motion";
 import { useRef, useEffect, useState, useLayoutEffect } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
+
 import { MotionConfig, useSpring, useTransform } from "framer-motion";
 import {Canvas, useFrame, extend} from "@react-three/fiber";
 import { useTexture, shaderMaterial } from '@react-three/drei';
@@ -47,8 +50,11 @@ extend({ ImageFadeMaterial })
 function Beach() {
     const [mousePos, setMousePos] = useState({});
     const [isPress, setIsPress] = useState(false);
-    
+    const [isHover, setIsHover] = useState(false);
+    let navigate = useNavigate();
     return (
+      <>
+      
         <motion.div className="talk"
             initial={{opacity:0, }}
             animate={{opacity:1,transition:{duration:3, type:'ease-out'}}}
@@ -62,6 +68,19 @@ function Beach() {
                 <FadingImage />
             </Canvas>
         </motion.div>
+          <motion.div
+            className="bell"
+            whileHover={{scale:1.5, opacity:1}}
+            whileTap={{scale:0.9}}
+            onHoverStart={()=>{
+              setIsHover(true);
+            }}
+            onTap={()=>{
+              navigate("/mood");
+            }}
+          >
+          </motion.div>
+        </>
     )
 }
 

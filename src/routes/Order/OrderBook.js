@@ -42,14 +42,16 @@ function MyBook({setMenu}){
         <>
             <HTMLFlipBook 
                 width={540} 
-                height={720}
+                height={800}
                 usePortrait={false}
                 useMouseEvents={false}
                 ref={book}
-                flippingTime={800}          
+                flippingTime={800}
+                showCover={false}
+                  
             >
                 {/* 1페이지 */}
-                <div className="demoPage">
+                <div className="demoPage" data-density="hard">
                     <motion.h1
                         className='page-header'
                         initial={{opacity:0}}
@@ -87,7 +89,7 @@ function MyBook({setMenu}){
                     )}
                     
                 </div>
-                <div className="demoPage">
+                <div className="demoPage" data-density="hard">
                     <AnimatePresence>
                         {selectItem&&
                             <motion.div
@@ -125,7 +127,7 @@ function MyBook({setMenu}){
                                     >
                                         <motion.button
                                             className="select-button"
-                                            whileHover={{scale:1.25}}
+                                            whileHover={{scale:1.4}}
                                             whileTap={{scale:0.95}}
                                             onTap={
                                                 ()=>{
@@ -146,7 +148,7 @@ function MyBook({setMenu}){
                                         </motion.button>
                                     <motion.button
                                         className="select-button"
-                                        whileHover={{scale:1.25}}
+                                        whileHover={{scale:1.4}}
                                         whileTap={{scale:0.95}}
                                         onTap={
                                             ()=>{
@@ -211,7 +213,7 @@ function MyBook({setMenu}){
 
 
                 {/* 3페이지 */}
-                <div className="demoPage">
+                <div className="demoPage" data-density="hard">
                     <motion.h1
                         className='page-header'
                     >Menu
@@ -234,7 +236,7 @@ function MyBook({setMenu}){
                          
                     </motion.div>)}
                 </div>
-                <div className="demoPage">
+                <div className="demoPage" data-density="hard">
                     <AnimatePresence>
                         {selectItem&&
                             <motion.div
@@ -272,7 +274,7 @@ function MyBook({setMenu}){
                                     >
                                         <motion.button
                                             className="select-button"
-                                            whileHover={{scale:1.25}}
+                                            whileHover={{scale:1.4}}
                                             whileTap={{scale:0.95}}
                                             onTap={
                                                 ()=>{
@@ -357,7 +359,7 @@ function MyBook({setMenu}){
                 </div>
 
                 {/* 5페이지 */}
-                <div className="demoPage">
+                <div className="demoPage" data-density="hard">
                     <motion.h1
                         className='page-header'
                     >Menu
@@ -382,7 +384,7 @@ function MyBook({setMenu}){
                 </div>
 
 
-                <div className="demoPage">
+                <div className="demoPage" data-density="hard">
                     <AnimatePresence>
                         {selectItem&&
                             <motion.div
@@ -420,7 +422,7 @@ function MyBook({setMenu}){
                                     >
                                         <motion.button
                                             className="select-button"
-                                            whileHover={{scale:1.25}}
+                                            whileHover={{scale:1.4}}
                                             whileTap={{scale:0.95}}
                                             onTap={
                                                 ()=>{
@@ -441,7 +443,7 @@ function MyBook({setMenu}){
                                         </motion.button>
                                     <motion.button
                                         className="select-button"
-                                        whileHover={{scale:1.25}}
+                                        whileHover={{scale:1.4}}
                                         whileTap={{scale:0.95}}
                                         onTap={
                                             ()=>{

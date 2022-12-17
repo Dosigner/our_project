@@ -59,13 +59,13 @@ function MoodSelection(){
                 className="mood-plates"
             >   
                 <motion.li variants={item} className="mood_plates">
-                    <MoodButton src="img/mood_plate/Modern.png" path="/mood-modern"/>
+                    <MoodButton src="img/mood_plate/Modern.png" path="/mood-cutes"/>
                     <MoodButton src="img/mood_plate/Vintage.png" />
                     <MoodButton src="img/mood_plate/Wonderful.png"/>
                 </motion.li>
 
                 <motion.li variants={item} className="mood_plates">
-                    <MoodButton src="img/mood_plate/Picnic.png"/>
+                    <MoodButton src="img/mood_plate/Picnic.png" path="/mood-cute"/>
                     <MoodButton src="img/mood_plate/Cool.png" path="/mood-beach"/>
                     <MoodButton src="img/mood_plate/Nightsky.png" path="/mood-sky"/>
                 </motion.li>
